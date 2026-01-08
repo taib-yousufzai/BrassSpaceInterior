@@ -1,0 +1,75 @@
+{
+  "manifest_version": 3,
+  "name": "Blutec Scout",
+  "version": "10.0.0",
+  "description": "Extract business leads with phone, website, email & social links",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3vFVLJeDSUVW/9F4Nfx7CWI2podkyXAg7n5tZ51wWLJE237hrahxzSoKZFCqYrUnPcPbxJJjaRzCL7BJYtXG3fs/dDrTfqlMA6tRoT21oynhxNU8Iq3ddxjgu3t/+9tbHM0UJxteZSGBH7/ucbOsuiPmYUKgPnKlhZMlIjwQV9/3wplkOGWQGat1Rq0VEr8uwq2wU8KPlyhyyq5axUsYm2DvTYGq/zhHVt8Z4OGyaRRun3LvkjrPZpQdGPcO3trW2Ah5yivNMRpQF9Hz3oiosBvgtMIArf0djh4namm1v3J7h/cpaP4J55ajHO7X+ltOE468ldOHv1MD/TCSMYT2MQIDAQAB",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs",
+    "scripting",
+    "identity"
+  ],
+  "oauth2": {
+    "client_id": "626474295520-014e9oa3nelvp1vf4s39kbqqov2oirom.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email",
+      "https://www.googleapis.com/auth/userinfo.profile"
+    ]
+  },
+  "host_permissions": [
+    "https://www.google.com/*",
+    "https://maps.google.com/*",
+    "https://blutec-scout-be.blutec.ai/*",
+    "http://localhost:5015/*",
+    "https://checkout.razorpay.com/*",
+    "https://api.razorpay.com/*"
+  ],
+  "icons": {
+    "16": "logo1.png",
+    "32": "logo1.png",
+    "48": "logo1.png",
+    "128": "logo1.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "logo1.png",
+      "32": "logo1.png",
+      "48": "logo1.png",
+      "128": "logo1.png"
+    }
+  },
+  "background": {
+    "service_worker": "background/service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.google.com/maps/*",
+        "https://maps.google.com/*"
+      ],
+      "js": [
+        "content/content-script.js"
+      ],
+      "css": [
+        "content/injected-ui.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "utils/api-scraper.js",
+        "utils/pb-generator.js",
+        "logo.png",
+        "payment-handler.html"
+      ],
+      "matches": [
+        "https://www.google.com/*"
+      ]
+    }
+  ]
+}

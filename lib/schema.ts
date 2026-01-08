@@ -1,0 +1,84 @@
+import { SITE_CONFIG } from './constants';
+
+export const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": SITE_CONFIG.name,
+  "image": `${SITE_CONFIG.url}/logo.png`,
+  "@id": SITE_CONFIG.url,
+  "url": SITE_CONFIG.url,
+  "telephone": SITE_CONFIG.phone,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": SITE_CONFIG.address.street,
+    "addressLocality": SITE_CONFIG.address.city,
+    "addressRegion": SITE_CONFIG.address.state,
+    "postalCode": SITE_CONFIG.address.zip,
+    "addressCountry": "IN"
+  },
+  "priceRange": "₹₹₹",
+  "sameAs": [
+    SITE_CONFIG.social.facebook,
+    SITE_CONFIG.social.instagram,
+    SITE_CONFIG.social.linkedin
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": SITE_CONFIG.rating.value.toString(),
+    "reviewCount": SITE_CONFIG.rating.count.toString()
+  }
+};
+
+export const serviceSchema = (service: { title: string; description: string; slug: string }) => ({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": service.title,
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": SITE_CONFIG.name
+  },
+  "description": service.description,
+  "url": `${SITE_CONFIG.url}/services/${service.slug}`
+});
+
+export const faqSchema = (faqs: Array<{ question: string; answer: string }>) => ({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+});
+
+export const articleSchema = (article: {
+  title: string;
+  description: string;
+  image: string;
+  datePublished: string;
+  dateModified: string;
+  author: string;
+}) => ({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": article.title,
+  "description": article.description,
+  "image": article.image,
+  "datePublished": article.datePublished,
+  "dateModified": article.dateModified,
+  "author": {
+    "@type": "Person",
+    "name": article.author
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": SITE_CONFIG.name,
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${SITE_CONFIG.url}/logo.png`
+    }
+  }
+});

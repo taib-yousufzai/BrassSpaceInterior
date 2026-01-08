@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brass-50: #fef9e7;
+  --color-brass-100: #fdf3cf;
+  --color-brass-200: #fbe79f;
+  --color-brass-300: #f9db6f;
+  --color-brass-400: #f7cf3f;
+  --color-brass-500: #daa520;
+  --color-brass-600: #cd9b1d;
+  --color-brass-700: #b8860b;
+  --color-brass-800: #8b6914;
+  --color-brass-900: #5e461d;
+  
+  --color-neutral-dark: #2c2416;
+  --color-neutral-light: #f5f1e8;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f1e8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #b8860b, #cd9b1d);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #8b6914, #b8860b);
+}
+
+/* Dotted Background Patterns */
+.dotted-bg-light {
+  background-image: radial-gradient(circle, #daa520 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+}
+
+.dotted-bg-dark {
+  background-image: radial-gradient(circle, rgba(218, 165, 32, 0.15) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+}
+
+.dotted-bg-white {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+}
+
+.dotted-bg-subtle {
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+}
+
+
+/* Lenis Smooth Scroll */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Processing Payment...</title>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #6FBADB, #4A9FCD);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .loader {
+      text-align: center;
+      color: white;
+    }
+    .spinner {
+      border: 4px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top: 4px solid white;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 20px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="loader">
+    <div class="spinner"></div>
+    <h2>Opening Payment Gateway...</h2>
+    <p>Please wait while we redirect you to the secure payment page.</p>
+  </div>
+
+  <script>
+    // Get payment data from URL params
+    const params = new URLSearchParams(window.location.search);
+    const orderData = params.get('orderData');
+    
+    if (orderData) {
+      try {
+        const order = JSON.parse(decodeURIComponent(orderData));
+        
+        const options = {
+          key: order.razorpayKeyId,
+          amount: order.order.amount,
+          currency: order.order.currency,
+          name: 'Blutec Scout',
+          description: `${order.plan.name} Plan - ${order.plan.lead_limit.toLocaleString()} Leads`,
+          order_id: order.order.id,
+          handler: function (response) {
+            // Send success message to opener
+            if (window.opener) {
+              window.opener.postMessage({
+                type: 'RAZORPAY_SUCCESS',
+                data: response
+              }, '*');
+            }
+            window.close();
+          },
+          modal: {
+            ondismiss: function() {
+              if (window.opener) {
+                window.opener.postMessage({
+                  type: 'RAZORPAY_CANCELLED'
+                }, '*');
+              }
+              window.close();
+            }
+          },
+          theme: {
+            color: '#6FBADB'
+          }
+        };
+
+        const razorpay = new Razorpay(options);
+        razorpay.open();
+      } catch (error) {
+        console.error('Error parsing order data:', error);
+        alert('Error loading payment gateway. Please try again.');
+        window.close();
+      }
+    } else {
+      alert('Invalid payment request');
+      window.close();
+    }
+  </script>
+</body>
+</html>
+
