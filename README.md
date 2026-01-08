@@ -2,6 +2,37 @@
 
 A fully functional, production-ready Next.js website for Brass Space Interior Solutions, featuring responsive design, SEO optimization, and conversion-focused UI.
 
+## 🚀 Quick Deploy to GitHub & Vercel
+
+### Option 1: Automated Script (Easiest)
+
+**Windows:**
+```bash
+cd brass-space
+deploy.bat
+```
+
+**Mac/Linux:**
+```bash
+cd brass-space
+chmod +x deploy.sh
+./deploy.sh
+```
+
+### Option 2: Manual Commands
+
+1. **Create repository on GitHub:** https://github.com/new
+2. **Push your code:**
+```bash
+cd brass-space
+git remote add origin https://github.com/YOUR_USERNAME/brass-space-website.git
+git branch -M main
+git push -u origin main
+```
+3. **Deploy on Vercel:** https://vercel.com → Import your repository → Deploy
+
+📖 **Detailed guide:** See [GITHUB_DEPLOY.md](GITHUB_DEPLOY.md) for step-by-step instructions.
+
 ## 🚀 Features
 
 - **Multi-page Architecture**: Home, About, Services, Portfolio, Blog, Contact, FAQ, Book Site Visit, Get Quote

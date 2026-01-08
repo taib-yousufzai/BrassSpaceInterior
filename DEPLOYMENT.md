@@ -1,5 +1,83 @@
 # Deployment Guide - Brass Space Website
 
+## Quick Start: Deploy to GitHub & Vercel
+
+### Step 1: Push to GitHub
+
+Your code is already committed locally. Now push it to GitHub:
+
+1. **Create a new repository on GitHub**
+   - Go to https://github.com/new
+   - Repository name: `brass-space-website` (or your preferred name)
+   - Keep it Private or Public (your choice)
+   - DO NOT initialize with README, .gitignore, or license (we already have these)
+   - Click "Create repository"
+
+2. **Push your code to GitHub**
+   ```bash
+   cd brass-space
+   git remote add origin https://github.com/YOUR_USERNAME/brass-space-website.git
+   git branch -M main
+   git push -u origin main
+   ```
+
+3. **Verify on GitHub**
+   - Refresh your GitHub repository page
+   - You should see all your files uploaded
+
+### Step 2: Deploy to Vercel (Recommended - Free & Easy)
+
+1. **Go to Vercel**
+   - Visit https://vercel.com
+   - Click "Sign Up" or "Login"
+   - Choose "Continue with GitHub"
+
+2. **Import Your Repository**
+   - Click "Add New..." → "Project"
+   - Select "Import Git Repository"
+   - Find and select your `brass-space-website` repository
+   - Click "Import"
+
+3. **Configure Project**
+   - Framework Preset: Next.js (auto-detected)
+   - Root Directory: `./` (leave as default)
+   - Build Command: `npm run build` (auto-filled)
+   - Output Directory: `.next` (auto-filled)
+   - Install Command: `npm install` (auto-filled)
+   - Click "Deploy"
+
+4. **Wait for Deployment** (2-3 minutes)
+   - Vercel will build and deploy your site
+   - You'll get a live URL like: `https://brass-space-website.vercel.app`
+
+5. **Add Custom Domain (Optional)**
+   - Go to Project Settings → Domains
+   - Add your custom domain (e.g., `brassspace.com`)
+   - Follow DNS configuration instructions
+   - SSL certificate is automatic
+
+### Step 3: Configure Environment Variables (If Needed)
+
+In Vercel Dashboard:
+- Go to Project Settings → Environment Variables
+- Add any required variables:
+  ```
+  NEXT_PUBLIC_SITE_URL=https://yourdomain.com
+  NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
+  ```
+
+### Step 4: Enable Automatic Deployments
+
+Already enabled! Every time you push to GitHub:
+```bash
+git add .
+git commit -m "Update website"
+git push
+```
+Vercel will automatically rebuild and deploy your site.
+
+---
+
 ## Pre-Deployment Checklist
 
 ### 1. Update Configuration
