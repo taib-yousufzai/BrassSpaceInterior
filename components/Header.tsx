@@ -23,12 +23,14 @@ export default function Header() {
             <Link href="/" className="text-white hover:text-[#daa520] transition font-medium">Home</Link>
             <div className="relative group">
               <button className="text-white hover:text-[#daa520] transition font-medium">Services</button>
-              <div className="absolute hidden group-hover:block bg-white/95 backdrop-blur-sm shadow-xl rounded-xl mt-2 py-3 w-64 border border-gray-100">
-                <Link href="/services/residential-interiors" className="block px-4 py-2 hover:bg-[#daa520]/10 hover:text-[#b8860b] transition text-gray-700">Residential Interiors</Link>
-                <Link href="/services/commercial-interiors" className="block px-4 py-2 hover:bg-[#daa520]/10 hover:text-[#b8860b] transition text-gray-700">Commercial Interiors</Link>
-                <Link href="/services/modular-kitchens" className="block px-4 py-2 hover:bg-[#daa520]/10 hover:text-[#b8860b] transition text-gray-700">Modular Kitchens</Link>
-                <Link href="/services/wardrobes-storage" className="block px-4 py-2 hover:bg-[#daa520]/10 hover:text-[#b8860b] transition text-gray-700">Wardrobes & Storage</Link>
-                <Link href="/services/renovation-execution" className="block px-4 py-2 hover:bg-[#daa520]/10 hover:text-[#b8860b] transition text-gray-700">Renovation & Execution</Link>
+              <div className="absolute hidden group-hover:block pt-2 top-full left-0">
+                <div className="bg-white/95 backdrop-blur-sm shadow-xl rounded-xl py-3 w-64 border border-gray-100">
+                  <Link href="/services/residential-interiors" className="block px-4 py-2 hover:bg-[#daa520]/10 hover:text-[#b8860b] transition text-gray-700">Residential Interiors</Link>
+                  <Link href="/services/commercial-interiors" className="block px-4 py-2 hover:bg-[#daa520]/10 hover:text-[#b8860b] transition text-gray-700">Commercial Interiors</Link>
+                  <Link href="/services/modular-kitchens" className="block px-4 py-2 hover:bg-[#daa520]/10 hover:text-[#b8860b] transition text-gray-700">Modular Kitchens</Link>
+                  <Link href="/services/wardrobes-storage" className="block px-4 py-2 hover:bg-[#daa520]/10 hover:text-[#b8860b] transition text-gray-700">Wardrobes & Storage</Link>
+                  <Link href="/services/renovation-execution" className="block px-4 py-2 hover:bg-[#daa520]/10 hover:text-[#b8860b] transition text-gray-700">Renovation & Execution</Link>
+                </div>
               </div>
             </div>
             <Link href="/portfolio" className="text-white hover:text-[#daa520] transition font-medium">Portfolio</Link>
@@ -45,7 +47,7 @@ export default function Header() {
           </div>
 
           {/* Mobile Menu Button */}
-          <button 
+          <button
             className="lg:hidden text-white"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >

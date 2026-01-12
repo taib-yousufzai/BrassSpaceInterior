@@ -14,8 +14,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const service = SERVICES.find(s => s.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const service = SERVICES.find(s => s.slug === slug);
   if (!service) return {};
 
   return genMeta({
@@ -25,9 +26,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   });
 }
 
-export default function ServicePage({ params }: { params: { slug: string } }) {
-  const service = SERVICES.find(s => s.slug === params.slug);
-  
+export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const service = SERVICES.find(s => s.slug === slug);
+
   if (!service) {
     notFound();
   }
@@ -176,12 +178,36 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
   };
 
   const details = serviceDetails[service.slug];
+
+  if (!details) {
+    return (
+      <>
+        <PageHero
+          title={service.title}
+          subtitle={service.description}
+          backgroundImage={service.image}
+        />
+        <section className="py-20 bg-white text-center">
+          <div className="container mx-auto px-4">
+            <h2 className="text-2xl font-semibold mb-4">Content Coming Soon</h2>
+            <p className="text-gray-600 mb-8">Detailed information for this service is currently being updated.</p>
+            <CTABanner
+              title="Interesting in this service?"
+              description="Contact us directly for more information."
+              buttonText="Contact Us"
+              buttonHref="/contact"
+            />
+          </div>
+        </section>
+      </>
+    );
+  }
   const schema = serviceSchema({ title: service.title, description: service.description, slug: service.slug });
 
   return (
     <>
       <SchemaInjector schema={schema} />
-      
+
       <PageHero
         title={service.title}
         subtitle={service.description}
@@ -202,7 +228,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">What You Get</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {details.benefits.map((benefit: string, index: number) => (
+            {details.benefits?.map((benefit: string, index: number) => (
               <div key={index} className="flex items-start space-x-3 bg-white p-4 rounded-lg shadow-sm">
                 <span className="text-amber-700 text-xl">✓</span>
                 <span className="text-gray-700">{benefit}</span>
@@ -217,7 +243,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-12 text-center">Our Process</h2>
           <div className="max-w-4xl mx-auto">
-            {details.process.map((item: any, index: number) => (
+            {details.process?.map((item: any, index: number) => (
               <div key={index} className="flex items-start mb-8 last:mb-0">
                 <div className="flex-shrink-0 w-12 h-12 bg-amber-700 text-white rounded-full flex items-center justify-center font-bold mr-6">
                   {index + 1}
@@ -250,7 +276,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 max-w-4xl">
           <h2 className="text-3xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
-          <Accordion items={details.faqs} />
+          <Accordion items={details.faqs || []} />
         </div>
       </section>
 
