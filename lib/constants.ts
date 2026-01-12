@@ -2,14 +2,14 @@ export const SITE_CONFIG = {
   name: "Brass Space Interior Solutions",
   description: "Thoughtful Interiors. Built to Last. Residential & Commercial Interior Solutions",
   url: "https://brassspace.com",
-  phone: "+91-9876543210",
-  email: "hello@brassspace.com",
-  whatsapp: "+919876543210",
+  phone: "+91-9999753611",
+  email: "Brass2028@outlook.com",
+  whatsapp: "+919999753611",
   address: {
-    street: "123 Design Street",
-    city: "Delhi",
-    state: "Delhi",
-    zip: "110001",
+    street: "Plot No. 257, Gali No. 8, Near Jaunapuria House, 20 pt. Colony",
+    city: "Jaunapur",
+    state: "New Delhi",
+    zip: "110047",
     country: "India"
   },
   social: {
