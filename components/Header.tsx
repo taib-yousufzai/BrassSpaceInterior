@@ -13,7 +13,7 @@ export default function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
-            <div className="relative w-12 h-12">
+            <div className="relative w-28 h-28">
               <Image
                 src="/logo.png"
                 alt="Brass Space"
@@ -21,7 +21,6 @@ export default function Header() {
                 className="object-contain"
               />
             </div>
-            <span className="text-xl font-bold text-white">Brass Space</span>
           </Link>
 
           {/* Desktop Navigation */}

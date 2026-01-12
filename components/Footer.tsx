@@ -9,10 +9,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="relative w-10 h-10">
+              <div className="relative w-28 h-28">
                 <Image src="/logo.png" alt="Brass Space" fill className="object-contain" />
               </div>
-              <h3 className="text-xl font-bold bg-gradient-to-r from-[#daa520] to-[#cd9b1d] bg-clip-text text-transparent">Brass Space</h3>
             </div>
             <p className="text-sm mb-4">Thoughtful Interiors. Built to Last.</p>
             <div className="flex space-x-4">
