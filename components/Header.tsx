@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -12,8 +13,13 @@ export default function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
-            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#daa520] to-[#b8860b] flex items-center justify-center text-white font-bold text-xl shadow-lg">
-              B
+            <div className="relative w-12 h-12">
+              <Image
+                src="/logo.png"
+                alt="Brass Space"
+                fill
+                className="object-contain"
+              />
             </div>
             <span className="text-xl font-bold text-white">Brass Space</span>
           </Link>
