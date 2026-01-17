@@ -3,19 +3,8 @@
 import { useState } from 'react';
 import PageHero from '@/components/PageHero';
 import ProjectCard from '@/components/ProjectCard';
-import { generateMetadata as genMeta } from '@/components/SEOHead';
-
-const projects = [
-  { id: 'modern-2bhk-gurgaon', title: 'Modern 2BHK Apartment', category: 'Residential', location: 'Gurgaon', area: '1200 sq ft', budget: '₹10-20 Lakhs', image: '/images/bedroom/mbr-1-1763100371-xDVo0.jpg' },
-  { id: 'luxury-island-kitchen', title: 'Luxury Island Kitchen', category: 'Kitchen', location: 'Delhi', area: '250 sq ft', budget: '₹5-10 Lakhs', image: '/images/Island Kitchen/ki-26-1763112209-dd7Yn.jpg' },
-  { id: 'corporate-office-noida', title: 'Corporate Office Interior', category: 'Commercial', location: 'Noida', area: '3000 sq ft', budget: 'Above ₹50 Lakhs', image: '/images/home office/ho-1-1763115252-l3GLN.jpg' },
-  { id: 'walk-in-wardrobe', title: 'Luxury Walk-in Wardrobe', category: 'Wardrobe', location: 'Gurgaon', area: '120 sq ft', budget: '₹5-10 Lakhs', image: '/images/Walk In Wardrobe/w1-1696585849-K7Bgb.jpg' },
-  { id: 'living-room-renovation', title: 'Contemporary Living Room', category: 'Residential', location: 'Delhi', area: '400 sq ft', budget: '₹5-10 Lakhs', image: '/images/living area/lr-11-1763103059-2KjqV.jpg' },
-  { id: 'parallel-kitchen', title: 'Modern Parallel Kitchen', category: 'Kitchen', location: 'Noida', area: '180 sq ft', budget: '₹5-10 Lakhs', image: '/images/Parallel Kitchen/ki-13-1763112292-8zKJS.jpg' },
-  { id: 'master-bedroom', title: 'Elegant Master Bedroom', category: 'Residential', location: 'Gurgaon', area: '300 sq ft', budget: '₹5-10 Lakhs', image: '/images/bedroom/mbr-11-1763111543-e5Ily.jpg' },
-  { id: 'dining-area', title: 'Modern Dining Space', category: 'Residential', location: 'Delhi', area: '200 sq ft', budget: 'Under ₹5 Lakhs', image: '/images/dining area/dr-11-1763110871-9W8lQ.jpg' },
-  { id: 'home-office', title: 'Productive Home Office', category: 'Commercial', location: 'Gurgaon', area: '150 sq ft', budget: 'Under ₹5 Lakhs', image: '/images/home office/ho-11-1763110382-NscOp.jpg' }
-];
+import { FadeInUp, StaggerContainer, StaggerItem } from '@/components/AnimatedSection';
+import { PORTFOLIO_PROJECTS, FEATURED_PROJECTS } from '@/lib/portfolio-data';
 
 export default function PortfolioPage() {
   const [filters, setFilters] = useState({
@@ -28,12 +17,18 @@ export default function PortfolioPage() {
   const cities = ['All', 'Delhi', 'Gurgaon', 'Noida', 'Ghaziabad', 'Faridabad'];
   const budgets = ['All', 'Under ₹5 Lakhs', '₹5-10 Lakhs', '₹10-20 Lakhs', '₹20-50 Lakhs', 'Above ₹50 Lakhs'];
 
-  const filteredProjects = projects.filter(project => {
+  const filteredProjects = PORTFOLIO_PROJECTS.filter(project => {
     if (filters.category !== 'All' && project.category !== filters.category) return false;
     if (filters.city !== 'All' && project.location !== filters.city) return false;
     if (filters.budget !== 'All' && project.budget !== filters.budget) return false;
     return true;
   });
+
+  // Calculate statistics
+  const totalProjects = PORTFOLIO_PROJECTS.length;
+  const residentialCount = PORTFOLIO_PROJECTS.filter(p => p.category === 'Residential').length;
+  const commercialCount = PORTFOLIO_PROJECTS.filter(p => p.category === 'Commercial').length;
+  const kitchenCount = PORTFOLIO_PROJECTS.filter(p => p.category === 'Kitchen').length;
 
   return (
     <>
@@ -43,17 +38,87 @@ export default function PortfolioPage() {
         backgroundImage="/images/living area/lr-1-1-1763103069-BpS4n.jpg"
       />
 
+      {/* Statistics Section */}
+      <section className="py-16 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
+        <div className="absolute inset-0 dotted-bg-white opacity-5"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <FadeInUp className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+              Our Work in <span className="text-[#daa520]">Numbers</span>
+            </h2>
+            <p className="text-xl text-gray-400">Transforming spaces across Delhi NCR</p>
+          </FadeInUp>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-6 text-center hover:border-[#daa520] transition-all duration-300 hover:-translate-y-2">
+              <div className="text-4xl md:text-5xl font-bold text-[#daa520] mb-2">{totalProjects}+</div>
+              <div className="text-gray-400 text-sm">Total Projects</div>
+            </div>
+            <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-6 text-center hover:border-[#daa520] transition-all duration-300 hover:-translate-y-2">
+              <div className="text-4xl md:text-5xl font-bold text-[#daa520] mb-2">{residentialCount}</div>
+              <div className="text-gray-400 text-sm">Residential</div>
+            </div>
+            <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-6 text-center hover:border-[#daa520] transition-all duration-300 hover:-translate-y-2">
+              <div className="text-4xl md:text-5xl font-bold text-[#daa520] mb-2">{commercialCount}</div>
+              <div className="text-gray-400 text-sm">Commercial</div>
+            </div>
+            <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-6 text-center hover:border-[#daa520] transition-all duration-300 hover:-translate-y-2">
+              <div className="text-4xl md:text-5xl font-bold text-[#daa520] mb-2">{kitchenCount}</div>
+              <div className="text-gray-400 text-sm">Kitchens</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Projects */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
+          <FadeInUp className="text-center mb-12">
+            <p className="text-[#daa520] text-sm md:text-base font-semibold tracking-widest uppercase mb-4">FEATURED WORK</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+              Signature <span className="text-[#daa520]">Projects</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Showcasing our most exceptional interior transformations
+            </p>
+          </FadeInUp>
+
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            {FEATURED_PROJECTS.map(project => (
+              <StaggerItem key={project.id}>
+                <ProjectCard
+                  id={project.id}
+                  title={project.title}
+                  category={project.category}
+                  location={project.location}
+                  image={project.thumbnail}
+                  area={project.area}
+                />
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* All Projects Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <FadeInUp className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+              All <span className="text-[#daa520]">Projects</span>
+            </h2>
+            <p className="text-xl text-gray-600">Filter and explore our complete portfolio</p>
+          </FadeInUp>
+
           {/* Filters */}
-          <div className="bg-gray-50 p-6 rounded-lg mb-12">
+          <div className="bg-white p-6 rounded-2xl shadow-md mb-12 border border-gray-200">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Category</label>
                 <select
                   value={filters.category}
                   onChange={(e) => setFilters({ ...filters, category: e.target.value })}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#daa520] focus:border-[#daa520] transition-all"
                 >
                   {categories.map(cat => (
                     <option key={cat} value={cat}>{cat}</option>
@@ -65,7 +130,7 @@ export default function PortfolioPage() {
                 <select
                   value={filters.city}
                   onChange={(e) => setFilters({ ...filters, city: e.target.value })}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#daa520] focus:border-[#daa520] transition-all"
                 >
                   {cities.map(city => (
                     <option key={city} value={city}>{city}</option>
@@ -77,7 +142,7 @@ export default function PortfolioPage() {
                 <select
                   value={filters.budget}
                   onChange={(e) => setFilters({ ...filters, budget: e.target.value })}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#daa520] focus:border-[#daa520] transition-all"
                 >
                   {budgets.map(budget => (
                     <option key={budget} value={budget}>{budget}</option>
@@ -85,31 +150,82 @@ export default function PortfolioPage() {
                 </select>
               </div>
             </div>
-          </div>
 
-          {/* Results Count */}
-          <div className="mb-6 text-gray-600">
-            Showing {filteredProjects.length} {filteredProjects.length === 1 ? 'project' : 'projects'}
+            {(filters.category !== 'All' || filters.city !== 'All' || filters.budget !== 'All') && (
+              <div className="mt-4 flex justify-between items-center">
+                <div className="text-sm text-gray-600">
+                  Showing {filteredProjects.length} of {totalProjects} projects
+                </div>
+                <button
+                  onClick={() => setFilters({ category: 'All', city: 'All', budget: 'All' })}
+                  className="text-sm text-[#b8860b] hover:text-[#daa520] font-semibold transition-colors"
+                >
+                  Clear all filters
+                </button>
+              </div>
+            )}
           </div>
 
           {/* Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map(project => (
-              <ProjectCard key={project.id} {...project} />
-            ))}
-          </div>
-
-          {filteredProjects.length === 0 && (
-            <div className="text-center py-12">
-              <p className="text-gray-600 text-lg">No projects found matching your filters.</p>
+          {filteredProjects.length > 0 ? (
+            <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredProjects.map(project => (
+                <StaggerItem key={project.id}>
+                  <ProjectCard
+                    id={project.id}
+                    title={project.title}
+                    category={project.category}
+                    location={project.location}
+                    image={project.thumbnail}
+                    area={project.area}
+                  />
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          ) : (
+            <div className="text-center py-16">
+              <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
+              <p className="text-gray-600 text-lg mb-4">No projects found matching your filters.</p>
               <button
                 onClick={() => setFilters({ category: 'All', city: 'All', budget: 'All' })}
-                className="mt-4 text-amber-700 hover:underline"
+                className="inline-block bg-gradient-to-r from-[#daa520] to-[#b8860b] text-white px-6 py-3 rounded-full font-semibold hover:from-[#b8860b] hover:to-[#8b6914] transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 Clear all filters
               </button>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
+        <div className="absolute inset-0 dotted-bg-white opacity-5"></div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Ready to Start Your Project?</h2>
+          <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+            Let's bring your vision to life with our expert interior design services
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a
+              href="/book-site-visit"
+              className="inline-flex items-center gap-3 bg-white text-gray-900 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl border-2 border-white hover:scale-105"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
+              Book Free Consultation
+            </a>
+            <a
+              href="/get-quote"
+              className="inline-block bg-gradient-to-r from-[#daa520] to-[#b8860b] text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-[#b8860b] hover:to-[#8b6914] transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+            >
+              Get Project Quote
+            </a>
+          </div>
         </div>
       </section>
     </>

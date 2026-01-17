@@ -104,8 +104,16 @@ export default function ContactPage() {
               {/* Map */}
               <div className="mt-8">
                 <h3 className="font-semibold mb-4">Find Us</h3>
-                <div className="bg-gray-200 h-64 rounded-lg flex items-center justify-center">
-                  <p className="text-gray-600">Google Maps Embed</p>
+                <div className="w-full h-64 rounded-xl overflow-hidden shadow-md border border-gray-200">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.7725964894386!2d77.15175407519985!3d28.486420590858712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1fc0d0000001%3A0x6e8a8b8b8b8b8b8b!2sJaunapur%2C%20New%20Delhi%2C%20Delhi%20110047!5e0!3m2!1sen!2sin!4v1705480000000!5m2!1sen!2sin"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen={true}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
                 </div>
               </div>
             </div>
@@ -113,7 +121,7 @@ export default function ContactPage() {
             {/* Contact Form */}
             <div>
               <h2 className="text-3xl font-bold mb-6">Send Us a Message</h2>
-              
+
               {submitted ? (
                 <div className="bg-green-50 border border-green-200 rounded-lg p-8 text-center">
                   <div className="text-5xl mb-4">✓</div>

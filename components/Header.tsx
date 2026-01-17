@@ -8,7 +8,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="absolute top-0 left-0 right-0 z-50 bg-transparent">
+    <header className="absolute top-0 left-0 right-0 z-50 bg-white shadow-sm lg:bg-transparent lg:shadow-none">
       <nav className="container mx-auto px-6 py-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -25,11 +25,11 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
-            <Link href="/" className="text-white hover:text-[#daa520] transition font-medium">Home</Link>
+            <Link href="/" className="text-gray-800 hover:text-[#daa520] transition font-medium">Home</Link>
             <div className="relative group">
-              <button className="text-white hover:text-[#daa520] transition font-medium">Services</button>
+              <button className="text-gray-800 hover:text-[#daa520] transition font-medium">Services</button>
               <div className="absolute hidden group-hover:block pt-2 top-full left-0">
-                <div className="bg-white/95 backdrop-blur-sm shadow-xl rounded-xl py-3 w-64 border border-gray-100">
+                <div className="bg-white backdrop-blur-sm shadow-xl rounded-xl py-3 w-64 border border-gray-100">
                   <Link href="/services/residential-interiors" className="block px-4 py-2 hover:bg-[#daa520]/10 hover:text-[#b8860b] transition text-gray-700">Residential Interiors</Link>
                   <Link href="/services/commercial-interiors" className="block px-4 py-2 hover:bg-[#daa520]/10 hover:text-[#b8860b] transition text-gray-700">Commercial Interiors</Link>
                   <Link href="/services/modular-kitchens" className="block px-4 py-2 hover:bg-[#daa520]/10 hover:text-[#b8860b] transition text-gray-700">Modular Kitchens</Link>
@@ -38,10 +38,10 @@ export default function Header() {
                 </div>
               </div>
             </div>
-            <Link href="/portfolio" className="text-white hover:text-[#daa520] transition font-medium">Portfolio</Link>
-            <Link href="/about" className="text-white hover:text-[#daa520] transition font-medium">About</Link>
-            <Link href="/blog" className="text-white hover:text-[#daa520] transition font-medium">Blog</Link>
-            <Link href="/contact" className="text-white hover:text-[#daa520] transition font-medium">Contact</Link>
+            <Link href="/portfolio" className="text-gray-800 hover:text-[#daa520] transition font-medium">Portfolio</Link>
+            <Link href="/about" className="text-gray-800 hover:text-[#daa520] transition font-medium">About</Link>
+            <Link href="/blog" className="text-gray-800 hover:text-[#daa520] transition font-medium">Blog</Link>
+            <Link href="/contact" className="text-gray-800 hover:text-[#daa520] transition font-medium">Contact</Link>
           </div>
 
           {/* CTA Button */}
@@ -53,7 +53,7 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden text-white"
+            className="lg:hidden text-gray-800"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

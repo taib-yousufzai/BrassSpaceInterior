@@ -16,55 +16,55 @@ interface Project {
 
 const projects: Project[] = [
   {
-    id: "modern-3bhk-apartment",
-    title: "Modern 3BHK Apartment",
+    id: "modern-2bhk-gurgaon",
+    title: "Modern 2BHK Apartment",
     category: "Residential",
-    location: "Mumbai, Maharashtra",
-    area: "1,800 sq ft",
-    image: "/images/living area/lr-1-1-1763103069-BpS4n.jpg",
+    location: "Gurgaon",
+    area: "1,200 sq ft",
+    image: "/images/bedroom/mbr-1-1763100371-xDVo0.jpg",
     thumbnails: [
-      "/images/living area/lr-1-1-1763103069-BpS4n.jpg",
       "/images/bedroom/mbr-1-1763100371-xDVo0.jpg",
-      "/images/Island Kitchen/ki-26-1763112209-dd7Yn.jpg"
+      "/images/bedroom/mbr-11-1763111543-e5Ily.jpg",
+      "/images/living area/lr-11-1763103059-2KjqV.jpg"
     ]
   },
   {
-    id: "luxury-kitchen-design",
+    id: "luxury-island-kitchen",
     title: "Luxury Island Kitchen",
     category: "Kitchen",
-    location: "Delhi, NCR",
+    location: "Delhi",
     area: "250 sq ft",
     image: "/images/Island Kitchen/ki-26-1763112209-dd7Yn.jpg",
     thumbnails: [
       "/images/Island Kitchen/ki-26-1763112209-dd7Yn.jpg",
-      "/images/kitchen/ki-1-1763111838-Ql0Ks.jpg",
-      "/images/Open Kitchen/ki-27-1763112244-Ql0Ks.jpg"
+      "/images/Island Kitchen/ki-1-1763112227-Ov8Uo.jpg",
+      "/images/Island Kitchen/ki-11-1763112216-Uy3Uw.jpg"
     ]
   },
   {
-    id: "corporate-office-interior",
+    id: "corporate-office-noida",
     title: "Corporate Office Interior",
     category: "Commercial",
-    location: "Noida, UP",
+    location: "Noida",
     area: "3,000 sq ft",
     image: "/images/home office/ho-1-1763115252-l3GLN.jpg",
     thumbnails: [
       "/images/home office/ho-1-1763115252-l3GLN.jpg",
-      "/images/home office/ho-2-1763115252-l3GLN.jpg",
-      "/images/home office/ho-3-1763115252-l3GLN.jpg"
+      "/images/home office/ho-11-1763110382-NscOp.jpg",
+      "/images/home office/ho-12-1763110381-RVOcI.jpg"
     ]
   },
   {
-    id: "master-bedroom-suite",
-    title: "Master Bedroom Suite",
+    id: "master-bedroom",
+    title: "Elegant Master Bedroom",
     category: "Residential",
-    location: "Gurgaon, Haryana",
-    area: "400 sq ft",
-    image: "/images/bedroom/mbr-1-1763100371-xDVo0.jpg",
+    location: "Gurgaon",
+    area: "300 sq ft",
+    image: "/images/bedroom/mbr-11-1763111543-e5Ily.jpg",
     thumbnails: [
+      "/images/bedroom/mbr-11-1763111543-e5Ily.jpg",
       "/images/bedroom/mbr-1-1763100371-xDVo0.jpg",
-      "/images/bedroom/mbr-2-1763100371-xDVo0.jpg",
-      "/images/wardrobe/wr-1-1763117088-Ql0Ks.jpg"
+      "/images/bedroom/mbr-12-1763111542-Qw9Xy.jpg"
     ]
   }
 ];
@@ -97,8 +97,8 @@ export default function FeaturedProjectsCarousel() {
             </h2>
             <p className="text-gray-400 text-lg">Discover our latest completed projects</p>
           </div>
-          <Link 
-            href="/portfolio" 
+          <Link
+            href="/portfolio"
             className="mt-6 md:mt-0 inline-flex items-center gap-2 px-6 py-3 border-2 border-[#daa520] text-[#daa520] rounded-full font-semibold hover:bg-[#daa520] hover:text-white transition-all duration-300"
           >
             View All Projects
@@ -143,7 +143,7 @@ export default function FeaturedProjectsCarousel() {
                   <span className="text-lg">{currentProject.area}</span>
                 </div>
               </div>
-              <Link 
+              <Link
                 href={`/portfolio/${currentProject.id}`}
                 className="inline-flex items-center gap-2 bg-gradient-to-r from-[#daa520] to-[#b8860b] text-white px-8 py-4 rounded-full font-semibold hover:from-[#b8860b] hover:to-[#8b6914] transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
               >
@@ -156,7 +156,7 @@ export default function FeaturedProjectsCarousel() {
 
             {/* Carousel Navigation */}
             <div className="flex items-center gap-4 pt-6">
-              <button 
+              <button
                 onClick={handlePrevious}
                 className="w-12 h-12 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-[#b8860b] hover:bg-[#b8860b] hover:text-white transition-all duration-300"
                 aria-label="Previous project"
@@ -173,14 +173,13 @@ export default function FeaturedProjectsCarousel() {
                       setCurrentIndex(index);
                       setSelectedThumbnail(0);
                     }}
-                    className={`h-1 rounded-full transition-all duration-300 ${
-                      index === currentIndex ? 'w-8 bg-[#b8860b]' : 'w-8 bg-gray-300'
-                    }`}
+                    className={`h-1 rounded-full transition-all duration-300 ${index === currentIndex ? 'w-8 bg-[#b8860b]' : 'w-8 bg-gray-300'
+                      }`}
                     aria-label={`Go to project ${index + 1}`}
                   />
                 ))}
               </div>
-              <button 
+              <button
                 onClick={handleNext}
                 className="w-12 h-12 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-[#b8860b] hover:bg-[#b8860b] hover:text-white transition-all duration-300"
                 aria-label="Next project"
@@ -197,11 +196,10 @@ export default function FeaturedProjectsCarousel() {
                 <button
                   key={index}
                   onClick={() => setSelectedThumbnail(index)}
-                  className={`relative h-32 rounded-2xl overflow-hidden transition-all duration-300 ${
-                    index === selectedThumbnail 
-                      ? 'border-2 border-[#b8860b] shadow-lg' 
+                  className={`relative h-32 rounded-2xl overflow-hidden transition-all duration-300 ${index === selectedThumbnail
+                      ? 'border-2 border-[#b8860b] shadow-lg'
                       : 'border-2 border-transparent hover:border-[#b8860b]'
-                  }`}
+                    }`}
                 >
                   <Image
                     src={thumbnail}

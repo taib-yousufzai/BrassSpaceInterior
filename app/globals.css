@@ -13,7 +13,7 @@
   --color-brass-900: #5e461d;
   
   --color-neutral-dark: #2c2416;
-  --color-neutral-light: #f5f1e8;
+  --color-neutral-light: #ffffff;
 }
 
 /* Custom scrollbar */
@@ -22,16 +22,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #f5f1e8;
+  background: #ffffff;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #b8860b, #cd9b1d);
+  background: linear-gradient(180deg, #daa520, #b8860b);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #8b6914, #b8860b);
+  background: linear-gradient(180deg, #b8860b, #8b6914);
 }
 
 /* Dotted Background Patterns */
@@ -42,19 +42,19 @@
 }
 
 .dotted-bg-dark {
-  background-image: radial-gradient(circle, rgba(218, 165, 32, 0.15) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(218, 165, 32, 0.4) 1px, transparent 1px);
   background-size: 20px 20px;
   background-position: 0 0, 10px 10px;
 }
 
 .dotted-bg-white {
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(218, 165, 32, 0.2) 1px, transparent 1px);
   background-size: 20px 20px;
   background-position: 0 0, 10px 10px;
 }
 
 .dotted-bg-subtle {
-  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
   background-size: 30px 30px;
   background-position: 0 0, 15px 15px;
 }
