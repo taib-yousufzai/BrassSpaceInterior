@@ -58,16 +58,16 @@ export default function PortfolioPage() {
               <div className="text-gray-400 text-sm">Projects Delivered</div>
             </div>
             <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-6 text-center hover:border-[#daa520] transition-all duration-300 hover:-translate-y-2">
-              <div className="text-4xl md:text-5xl font-bold text-[#daa520] mb-2">{SITE_CONFIG.stats.residential}</div>
-              <div className="text-gray-400 text-sm">Residential</div>
+              <div className="text-4xl md:text-5xl font-bold text-[#daa520] mb-2">{SITE_CONFIG.stats.team}</div>
+              <div className="text-gray-400 text-sm">Team Members</div>
             </div>
             <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-6 text-center hover:border-[#daa520] transition-all duration-300 hover:-translate-y-2">
-              <div className="text-4xl md:text-5xl font-bold text-[#daa520] mb-2">{SITE_CONFIG.stats.commercial}</div>
-              <div className="text-gray-400 text-sm">Commercial</div>
+              <div className="text-4xl md:text-5xl font-bold text-[#daa520] mb-2">{SITE_CONFIG.stats.experience}</div>
+              <div className="text-gray-400 text-sm">Years Experience</div>
             </div>
             <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-6 text-center hover:border-[#daa520] transition-all duration-300 hover:-translate-y-2">
-              <div className="text-4xl md:text-5xl font-bold text-[#daa520] mb-2">{SITE_CONFIG.stats.kitchens}</div>
-              <div className="text-gray-400 text-sm">Kitchens</div>
+              <div className="text-4xl md:text-5xl font-bold text-[#daa520] mb-2">{SITE_CONFIG.stats.cities}</div>
+              <div className="text-gray-400 text-sm">Cities Present</div>
             </div>
           </div>
         </div>

@@ -22,13 +22,16 @@ export const SITE_CONFIG = {
     count: 150
   },
   stats: {
-    projects: "250+",
-    clients: "200+",
+    projects: "500+",
+    team: "50+",
+    experience: "10+",
+    cities: "10+",
+    clients: "450+",
     reviews: "150+",
     awards: "15+",
-    residential: "180+",
-    commercial: "45+",
-    kitchens: "120+"
+    residential: "380+",
+    commercial: "120+",
+    kitchens: "250+"
   }
 };
 

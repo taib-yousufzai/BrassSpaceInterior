@@ -111,20 +111,20 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-5xl font-bold mb-2">{SITE_CONFIG.stats.projects}</div>
-              <div className="text-lg">Projects Completed</div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">{SITE_CONFIG.stats.projects}</div>
+              <div className="text-lg opacity-90">Projects Completed</div>
             </div>
             <div>
-              <div className="text-5xl font-bold mb-2">{SITE_CONFIG.stats.clients}</div>
-              <div className="text-lg">Happy Clients</div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">{SITE_CONFIG.stats.team}</div>
+              <div className="text-lg opacity-90">Team Members</div>
             </div>
             <div>
-              <div className="text-5xl font-bold mb-2">{SITE_CONFIG.stats.awards}</div>
-              <div className="text-lg">Design Awards</div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">{SITE_CONFIG.stats.experience}</div>
+              <div className="text-lg opacity-90">Years Experience</div>
             </div>
             <div>
-              <div className="text-5xl font-bold mb-2">{SITE_CONFIG.rating.value}</div>
-              <div className="text-lg">Google Rating</div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">{SITE_CONFIG.stats.cities}</div>
+              <div className="text-lg opacity-90">Cities Present</div>
             </div>
           </div>
         </div>
