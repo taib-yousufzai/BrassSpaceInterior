@@ -12,7 +12,7 @@ const CLIENTS = [
     { name: "Starbucks", color: "#00704a", initials: "SB", logo: "/images/clients/starbucks.png" },
     { name: "GD GOENKA", color: "#c2185b", initials: "GD", logo: "/images/clients/gd_goenka.png" },
     { name: "APOLLO", color: "#0288d1", initials: "AP", logo: "/images/clients/apollo.png" },
-    { name: "DPS", color: "#7b1fa2", initials: "DP", logo: null }
+    { name: "DPS", color: "#7b1fa2", initials: "DP", logo: "/images/clients/dps.png" }
 ];
 
 export default function TrustedByMarquee() {
