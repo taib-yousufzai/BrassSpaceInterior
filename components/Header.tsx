@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -52,7 +52,7 @@ export default function Header() {
     { name: 'Renovation & Execution', href: '/services/renovation-execution' },
   ];
 
-  const menuVariants = {
+  const menuVariants: Variants = {
     closed: {
       opacity: 0,
       x: "100%",
@@ -75,7 +75,7 @@ export default function Header() {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     closed: { opacity: 0, x: 20 },
     opened: { opacity: 1, x: 0 }
   };
