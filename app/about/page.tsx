@@ -26,13 +26,10 @@ export default function AboutPage() {
             <div>
               <h2 className="text-3xl font-bold mb-6">Our Story</h2>
               <p className="text-gray-700 mb-4">
-                Founded with a passion for transforming spaces, Brass Space Interior Solutions has been at the forefront of innovative interior design in Delhi NCR. Our journey began with a simple belief: every space has the potential to inspire.
+                Founded in 2010, Brass Space Interior Solution has been at the forefront of innovative interior design. We combine traditional craftsmanship with modern aesthetics to create spaces that are both beautiful and functional.
               </p>
               <p className="text-gray-700 mb-4">
-                Over the years, we've completed {SITE_CONFIG.stats.projects} projects, ranging from cozy residential apartments to expansive commercial spaces. Each project is a testament to our commitment to quality, creativity, and client satisfaction.
-              </p>
-              <p className="text-gray-700">
-                We don't just design interiors; we create environments that reflect your personality, enhance functionality, and stand the test of time.
+                Our team of experienced designers and architects work closely with clients to understand their vision and bring it to life. We pride ourselves on attention to detail and our commitment to excellence in every project we undertake.
               </p>
             </div>
             <div className="relative h-96 rounded-lg overflow-hidden shadow-xl">
@@ -55,7 +52,7 @@ export default function AboutPage() {
               <div className="text-4xl mb-4">🎯</div>
               <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
               <p className="text-gray-700">
-                To be the most trusted and innovative interior design partner in India, known for creating spaces that inspire, function beautifully, and exceed expectations.
+                To be the leading interior design firm known for creating timeless, sophisticated spaces that enhance the way people live and work.
               </p>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-md">

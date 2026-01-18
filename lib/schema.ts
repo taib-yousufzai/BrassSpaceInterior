@@ -82,3 +82,69 @@ export const articleSchema = (article: {
     }
   }
 });
+
+export const breadcrumbSchema = (items: Array<{ name: string; item: string }>) => ({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": items.map((item, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": item.name,
+    "item": item.item
+  }))
+});
+
+export const projectSchema = (project: {
+  title: string;
+  description: string;
+  image: string;
+  datePublished: string;
+  location: string;
+  url: string;
+  testimonial?: {
+    text: string;
+    client: string;
+    rating: number;
+  };
+}) => {
+  const schema: any = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": project.title,
+    "description": project.description,
+    "image": project.image,
+    "url": project.url,
+    "brand": {
+      "@type": "Brand",
+      "name": SITE_CONFIG.name
+    },
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "INR",
+      "availability": "https://schema.org/InStock"
+    }
+  };
+
+  if (project.testimonial) {
+    schema.review = {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": project.testimonial.rating,
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": project.testimonial.client
+      },
+      "reviewBody": project.testimonial.text
+    };
+    schema.aggregateRating = {
+      "@type": "AggregateRating",
+      "ratingValue": project.testimonial.rating,
+      "reviewCount": "1"
+    };
+  }
+
+  return schema;
+};

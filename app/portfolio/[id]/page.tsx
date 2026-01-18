@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { PORTFOLIO_PROJECTS } from '@/lib/portfolio-data';
 import { FadeInUp } from '@/components/AnimatedSection';
 import CTABanner from '@/components/CTABanner';
+import { SITE_CONFIG } from '@/lib/constants';
+import { Metadata } from 'next';
 
 interface ProjectPageProps {
   params: Promise<{
@@ -17,6 +19,49 @@ export async function generateStaticParams() {
   }));
 }
 
+export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
+  const { id } = await params;
+  const normalizedId = id.trim().toLowerCase();
+  const project = PORTFOLIO_PROJECTS.find(p => p.id.toLowerCase() === normalizedId);
+
+  if (!project) {
+    return {
+      title: 'Project Not Found | Brass Space',
+      description: 'The requested project could not be found.',
+    };
+  }
+
+  return {
+    title: `${project.title} - ${project.category} Design in ${project.location} | Brass Space`,
+    description: project.description,
+    openGraph: {
+      title: `${project.title} | Brass Space Interior Solutions`,
+      description: project.description,
+      url: `${SITE_CONFIG.url}/portfolio/${project.id}`,
+      siteName: SITE_CONFIG.name,
+      images: [
+        {
+          url: project.thumbnail,
+          width: 1200,
+          height: 630,
+          alt: project.title,
+        },
+      ],
+      locale: 'en_IN',
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${project.title} | Brass Space`,
+      description: project.description,
+      images: [project.thumbnail],
+    },
+  };
+}
+
+import { projectSchema, breadcrumbSchema } from '@/lib/schema';
+import SchemaInjector from '@/components/SchemaInjector';
+
 export default async function ProjectDetailPage({ params }: ProjectPageProps) {
   const { id } = await params;
   const normalizedId = id.trim().toLowerCase();
@@ -29,6 +74,23 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
     notFound();
   }
 
+  const structuredData = [
+    projectSchema({
+      title: project.title,
+      description: project.description,
+      image: project.thumbnail,
+      datePublished: project.completionDate, // Ideally needs ISO format, but passing string is ok for now or needs conversion if schema is strict. Product schema doesn't strictly require datePublished but CreativeWork does.
+      location: project.location,
+      url: `${SITE_CONFIG.url}/portfolio/${project.id}`,
+      testimonial: project.testimonial
+    }),
+    breadcrumbSchema([
+      { name: 'Home', item: SITE_CONFIG.url },
+      { name: 'Portfolio', item: `${SITE_CONFIG.url}/portfolio` },
+      { name: project.title, item: `${SITE_CONFIG.url}/portfolio/${project.id}` }
+    ])
+  ];
+
   // Get related projects (same category, excluding current)
   const relatedProjects = PORTFOLIO_PROJECTS
     .filter(p => p.category === project.category && p.id !== project.id)
@@ -36,6 +98,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 
   return (
     <>
+      <SchemaInjector schema={structuredData} />
       {/* Hero Section */}
       <section className="relative h-[60vh] min-h-[500px] overflow-hidden">
         <Image

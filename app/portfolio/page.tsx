@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from 'react';
+import Image from 'next/image';
 import PageHero from '@/components/PageHero';
 import ProjectCard from '@/components/ProjectCard';
 import { FadeInUp, StaggerContainer, StaggerItem } from '@/components/AnimatedSection';
+import TrustedByMarquee from '@/components/TrustedByMarquee';
 import { PORTFOLIO_PROJECTS, FEATURED_PROJECTS } from '@/lib/portfolio-data';
 import { SITE_CONFIG } from '@/lib/constants';
 
@@ -100,6 +102,9 @@ export default function PortfolioPage() {
           </StaggerContainer>
         </div>
       </section>
+
+      {/* Trusted By / Our Clients Section */}
+      <TrustedByMarquee />
 
       {/* All Projects Section */}
       <section className="py-16 bg-gray-50">
@@ -199,6 +204,79 @@ export default function PortfolioPage() {
               </button>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* Our Story Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
+            <FadeInUp>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+                Our <span className="text-[#daa520]">Story</span>
+              </h2>
+              <p className="text-gray-700 mb-4 text-lg leading-relaxed">
+                Founded in 2010, Brass Space Interior Solution has been at the forefront of innovative interior design. We combine traditional craftsmanship with modern aesthetics to create spaces that are both beautiful and functional.
+              </p>
+              <p className="text-gray-700 mb-4 text-lg leading-relaxed">
+                Our team of experienced designers and architects work closely with clients to understand their vision and bring it to life. We pride ourselves on attention to detail and our commitment to excellence in every project we undertake.
+              </p>
+            </FadeInUp>
+            <FadeInUp delay={0.2}>
+              <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src="/images/living area/lr-12-1763103058-7JFKh.jpg"
+                  alt="Brass Space Team"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </FadeInUp>
+          </div>
+        </div>
+      </section>
+
+      {/* Meet Our Team Section */}
+      <section className="py-16 bg-gray-50 border-t border-gray-100">
+        <div className="container mx-auto px-4">
+          <FadeInUp className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+              Meet Our <span className="text-[#daa520]">Team</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              The experts behind our innovative designs and successful projects
+            </p>
+          </FadeInUp>
+
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { name: "Brajesh Kumar Sharma", role: "Director", image: "/images/ourteam/Brajesh.jpeg" },
+              { name: "Sumit Singh", role: "General Manager" },
+              { name: "Munnalal Gautam", role: "Project Manager", image: "/images/ourteam/Munnalal.jpeg" },
+              { name: "Mohit Verma", role: "Interior Architect", image: "/images/ourteam/Mohit.jpeg" }
+            ].map((member, index) => (
+              <StaggerItem key={index}>
+                <div className="bg-white rounded-2xl p-6 text-center shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-gray-100 group">
+                  <div className="w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center group-hover:from-[#daa520]/10 group-hover:to-[#b8860b]/10 transition-colors relative">
+                    {member.image ? (
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        className="object-cover"
+                      />
+                    ) : (
+                      <svg className="w-10 h-10 text-gray-400 group-hover:text-[#b8860b] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                      </svg>
+                    )}
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#daa520] transition-colors">{member.name}</h3>
+                  <p className="text-gray-500 font-medium">{member.role}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
         </div>
       </section>
 

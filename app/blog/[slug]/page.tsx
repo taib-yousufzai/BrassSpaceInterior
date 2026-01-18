@@ -5,6 +5,8 @@ import { BLOG_POSTS } from '@/lib/blog-data';
 import { FadeInUp } from '@/components/AnimatedSection';
 import PageHero from '@/components/PageHero';
 import CTABanner from '@/components/CTABanner';
+import { SITE_CONFIG } from '@/lib/constants';
+import { Metadata } from 'next';
 
 interface BlogPageProps {
     params: Promise<{
@@ -18,6 +20,49 @@ export async function generateStaticParams() {
     }));
 }
 
+export async function generateMetadata({ params }: BlogPageProps): Promise<Metadata> {
+    const { slug } = await params;
+    const post = BLOG_POSTS.find(p => p.slug === slug);
+
+    if (!post) {
+        return {
+            title: 'Article Not Found | Brass Space',
+            description: 'The requested article could not be found.',
+        };
+    }
+
+    return {
+        title: `${post.title} | Brass Space Blog`,
+        description: post.excerpt,
+        openGraph: {
+            title: post.title,
+            description: post.excerpt,
+            url: `${SITE_CONFIG.url}/blog/${post.slug}`,
+            siteName: SITE_CONFIG.name,
+            images: [
+                {
+                    url: post.image,
+                    width: 1200,
+                    height: 630,
+                    alt: post.title,
+                },
+            ],
+            type: 'article',
+            publishedTime: new Date(post.date).toISOString(),
+            authors: [post.author],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: post.title,
+            description: post.excerpt,
+            images: [post.image],
+        },
+    };
+}
+
+import { articleSchema, breadcrumbSchema } from '@/lib/schema';
+import SchemaInjector from '@/components/SchemaInjector';
+
 export default async function BlogDetailPage({ params }: BlogPageProps) {
     const { slug } = await params;
     const post = BLOG_POSTS.find(p => p.slug === slug);
@@ -26,12 +71,29 @@ export default async function BlogDetailPage({ params }: BlogPageProps) {
         notFound();
     }
 
+    const structuredData = [
+        articleSchema({
+            title: post.title,
+            description: post.excerpt,
+            image: post.image,
+            datePublished: new Date(post.date).toISOString(),
+            dateModified: new Date(post.date).toISOString(),
+            author: post.author
+        }),
+        breadcrumbSchema([
+            { name: 'Home', item: SITE_CONFIG.url },
+            { name: 'Blog', item: `${SITE_CONFIG.url}/blog` },
+            { name: post.title, item: `${SITE_CONFIG.url}/blog/${post.slug}` }
+        ])
+    ];
+
     const relatedPosts = BLOG_POSTS
         .filter(p => p.category === post.category && p.slug !== post.slug)
         .slice(0, 2);
 
     return (
         <>
+            <SchemaInjector schema={structuredData} />
             <PageHero
                 title={post.title}
                 subtitle={`${post.category} • ${post.date}`}

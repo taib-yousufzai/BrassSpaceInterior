@@ -1,5 +1,7 @@
 import { MetadataRoute } from 'next';
 import { SITE_CONFIG, SERVICES } from '@/lib/constants';
+import { PORTFOLIO_PROJECTS } from '@/lib/portfolio-data';
+import { BLOG_POSTS } from '@/lib/blog-data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_CONFIG.url;
@@ -27,5 +29,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
-  return [...routes, ...serviceRoutes];
+  const projectRoutes = PORTFOLIO_PROJECTS.map((project) => ({
+    url: `${baseUrl}/portfolio/${project.id}`,
+    lastModified: new Date(), // Ideally this would be project.completionDate if it were a full date
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
+  const blogRoutes = BLOG_POSTS.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.date),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
+  return [...routes, ...serviceRoutes, ...projectRoutes, ...blogRoutes];
 }

@@ -16,6 +16,7 @@ export const metadata: Metadata = {
     default: `${SITE_CONFIG.name} - Thoughtful Interiors. Built to Last.`,
     template: `%s | ${SITE_CONFIG.name}`
   },
+  metadataBase: new URL(SITE_CONFIG.url),
   description: SITE_CONFIG.description,
   keywords: ["interior design", "residential interiors", "commercial interiors", "modular kitchens", "wardrobes", "renovation", "Delhi", "NCR"],
   authors: [{ name: SITE_CONFIG.name }],
