@@ -34,7 +34,7 @@ export default function HeroSection({
           {overlay && <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />}
         </>
       )}
-      
+
       <div className="relative z-10 container mx-auto px-6 text-center pt-32">
         {subtitle && (
           <p className="text-gray-300 text-sm md:text-base mb-6 font-medium tracking-wider uppercase flex items-center justify-center gap-2">
@@ -42,18 +42,18 @@ export default function HeroSection({
             {subtitle}
           </p>
         )}
-        
+
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
           {title.split('.')[0]}.{' '}
           <span className="bg-gradient-to-r from-[#daa520] to-[#b8860b] bg-clip-text text-transparent">
             {title.split('.')[1]}.
           </span>
         </h1>
-        
+
         {description && (
           <p className="text-lg md:text-xl mb-12 max-w-3xl mx-auto text-gray-300">{description}</p>
         )}
-        
+
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
           {primaryCTA && (
             <Link
@@ -80,9 +80,9 @@ export default function HeroSection({
         </div>
 
         {/* Stats Bar */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 max-w-5xl mx-auto">
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/20 hover:border-white/40 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group cursor-pointer">
-            <div className="text-3xl md:text-4xl font-bold text-[#daa520] mb-2 group-hover:scale-110 transition-transform duration-300">150+</div>
+            <div className="text-3xl md:text-4xl font-bold text-[#daa520] mb-2 group-hover:scale-110 transition-transform duration-300">500+</div>
             <div className="text-sm text-gray-300 group-hover:text-white transition-colors duration-300">Projects Delivered</div>
           </div>
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/20 hover:border-white/40 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group cursor-pointer">
@@ -96,8 +96,12 @@ export default function HeroSection({
             <div className="text-sm text-gray-300 group-hover:text-white transition-colors duration-300">On-time Delivery</div>
           </div>
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/20 hover:border-white/40 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group cursor-pointer">
-            <div className="text-3xl md:text-4xl font-bold text-[#daa520] mb-2 group-hover:scale-110 transition-transform duration-300">5+</div>
+            <div className="text-3xl md:text-4xl font-bold text-[#daa520] mb-2 group-hover:scale-110 transition-transform duration-300">10+</div>
             <div className="text-sm text-gray-300 group-hover:text-white transition-colors duration-300">Years Experience</div>
+          </div>
+          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/20 hover:border-white/40 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group cursor-pointer">
+            <div className="text-3xl md:text-4xl font-bold text-[#daa520] mb-2 group-hover:scale-110 transition-transform duration-300">10+</div>
+            <div className="text-sm text-gray-300 group-hover:text-white transition-colors duration-300">Cities Present</div>
           </div>
         </div>
       </div>
