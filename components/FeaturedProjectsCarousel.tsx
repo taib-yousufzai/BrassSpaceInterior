@@ -91,17 +91,17 @@ export default function FeaturedProjectsCarousel() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
           <div>
-            <p className="text-[#daa520] text-sm md:text-base font-semibold tracking-widest uppercase mb-2">PORTFOLIO</p>
+            <p className="text-[#daa520] text-sm md:text-base font-semibold tracking-widest uppercase mb-2">HIGHLIGHTS</p>
             <h2 className="text-3xl md:text-5xl font-bold mb-2 text-white">
-              Featured <span className="text-[#daa520]">Projects</span>
+              Signature <span className="text-[#daa520]">Projects</span>
             </h2>
-            <p className="text-gray-400 text-lg">Discover our latest completed projects</p>
+            <p className="text-gray-400 text-lg">Curated collection of our finest transformations</p>
           </div>
           <Link
             href="/portfolio"
             className="mt-6 md:mt-0 inline-flex items-center gap-2 px-6 py-3 border-2 border-[#daa520] text-[#daa520] rounded-full font-semibold hover:bg-[#daa520] hover:text-white transition-all duration-300"
           >
-            View All Projects
+            View Full Gallery
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
@@ -197,8 +197,8 @@ export default function FeaturedProjectsCarousel() {
                   key={index}
                   onClick={() => setSelectedThumbnail(index)}
                   className={`relative h-32 rounded-2xl overflow-hidden transition-all duration-300 ${index === selectedThumbnail
-                      ? 'border-2 border-[#b8860b] shadow-lg'
-                      : 'border-2 border-transparent hover:border-[#b8860b]'
+                    ? 'border-2 border-[#b8860b] shadow-lg'
+                    : 'border-2 border-transparent hover:border-[#b8860b]'
                     }`}
                 >
                   <Image

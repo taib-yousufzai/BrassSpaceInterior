@@ -5,6 +5,7 @@ import PageHero from '@/components/PageHero';
 import ProjectCard from '@/components/ProjectCard';
 import { FadeInUp, StaggerContainer, StaggerItem } from '@/components/AnimatedSection';
 import { PORTFOLIO_PROJECTS, FEATURED_PROJECTS } from '@/lib/portfolio-data';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export default function PortfolioPage() {
   const [filters, setFilters] = useState({
@@ -33,8 +34,8 @@ export default function PortfolioPage() {
   return (
     <>
       <PageHero
-        title="Our Portfolio"
-        subtitle="Explore our completed projects across Delhi NCR"
+        title="Signature Projects"
+        subtitle="A curated showcase of our favorite transformations across Delhi NCR"
         backgroundImage="/images/living area/lr-1-1-1763103069-BpS4n.jpg"
       />
 
@@ -51,19 +52,19 @@ export default function PortfolioPage() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
             <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-6 text-center hover:border-[#daa520] transition-all duration-300 hover:-translate-y-2">
-              <div className="text-4xl md:text-5xl font-bold text-[#daa520] mb-2">{totalProjects}+</div>
-              <div className="text-gray-400 text-sm">Total Projects</div>
+              <div className="text-4xl md:text-5xl font-bold text-[#daa520] mb-2">{SITE_CONFIG.stats.projects}</div>
+              <div className="text-gray-400 text-sm">Projects Delivered</div>
             </div>
             <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-6 text-center hover:border-[#daa520] transition-all duration-300 hover:-translate-y-2">
-              <div className="text-4xl md:text-5xl font-bold text-[#daa520] mb-2">{residentialCount}</div>
+              <div className="text-4xl md:text-5xl font-bold text-[#daa520] mb-2">{SITE_CONFIG.stats.residential}</div>
               <div className="text-gray-400 text-sm">Residential</div>
             </div>
             <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-6 text-center hover:border-[#daa520] transition-all duration-300 hover:-translate-y-2">
-              <div className="text-4xl md:text-5xl font-bold text-[#daa520] mb-2">{commercialCount}</div>
+              <div className="text-4xl md:text-5xl font-bold text-[#daa520] mb-2">{SITE_CONFIG.stats.commercial}</div>
               <div className="text-gray-400 text-sm">Commercial</div>
             </div>
             <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-6 text-center hover:border-[#daa520] transition-all duration-300 hover:-translate-y-2">
-              <div className="text-4xl md:text-5xl font-bold text-[#daa520] mb-2">{kitchenCount}</div>
+              <div className="text-4xl md:text-5xl font-bold text-[#daa520] mb-2">{SITE_CONFIG.stats.kitchens}</div>
               <div className="text-gray-400 text-sm">Kitchens</div>
             </div>
           </div>
@@ -105,9 +106,9 @@ export default function PortfolioPage() {
         <div className="container mx-auto px-4">
           <FadeInUp className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-              All <span className="text-[#daa520]">Projects</span>
+              Project <span className="text-[#daa520]">Gallery</span>
             </h2>
-            <p className="text-xl text-gray-600">Filter and explore our complete portfolio</p>
+            <p className="text-xl text-gray-600">Explore a selected range of our high-quality interior solutions</p>
           </FadeInUp>
 
           {/* Filters */}

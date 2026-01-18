@@ -202,7 +202,7 @@ NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
 
 ## 🤝 Support
 
-For support, email hello@brassspace.com or call +91-9876543210
+For support, email Brass2028@outlook.com or call +91-9999753611
 
 ## 📄 License
 

@@ -2,6 +2,7 @@ import PageHero from '@/components/PageHero';
 import CTABanner from '@/components/CTABanner';
 import Image from 'next/image';
 import { generateMetadata as genMeta } from '@/components/SEOHead';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata = genMeta({
   title: "About Us - Brass Space Interior Solutions",
@@ -28,7 +29,7 @@ export default function AboutPage() {
                 Founded with a passion for transforming spaces, Brass Space Interior Solutions has been at the forefront of innovative interior design in Delhi NCR. Our journey began with a simple belief: every space has the potential to inspire.
               </p>
               <p className="text-gray-700 mb-4">
-                Over the years, we've completed 150+ projects, ranging from cozy residential apartments to expansive commercial spaces. Each project is a testament to our commitment to quality, creativity, and client satisfaction.
+                Over the years, we've completed {SITE_CONFIG.stats.projects} projects, ranging from cozy residential apartments to expansive commercial spaces. Each project is a testament to our commitment to quality, creativity, and client satisfaction.
               </p>
               <p className="text-gray-700">
                 We don't just design interiors; we create environments that reflect your personality, enhance functionality, and stand the test of time.
@@ -113,19 +114,19 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-5xl font-bold mb-2">150+</div>
+              <div className="text-5xl font-bold mb-2">{SITE_CONFIG.stats.projects}</div>
               <div className="text-lg">Projects Completed</div>
             </div>
             <div>
-              <div className="text-5xl font-bold mb-2">200+</div>
+              <div className="text-5xl font-bold mb-2">{SITE_CONFIG.stats.clients}</div>
               <div className="text-lg">Happy Clients</div>
             </div>
             <div>
-              <div className="text-5xl font-bold mb-2">15+</div>
+              <div className="text-5xl font-bold mb-2">{SITE_CONFIG.stats.awards}</div>
               <div className="text-lg">Design Awards</div>
             </div>
             <div>
-              <div className="text-5xl font-bold mb-2">4.8</div>
+              <div className="text-5xl font-bold mb-2">{SITE_CONFIG.rating.value}</div>
               <div className="text-lg">Google Rating</div>
             </div>
           </div>

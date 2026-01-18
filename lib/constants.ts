@@ -6,7 +6,7 @@ export const SITE_CONFIG = {
   email: "Brass2028@outlook.com",
   whatsapp: "+919999753611",
   address: {
-    street: "Plot No. 257, Gali No. 8, Near Jaunapuria House, 20 pt. Colony",
+    street: "Plot No. 257, Gali No. 8, Near Jaunapuria House, 20 pt. Colony ",
     city: "Jaunapur",
     state: "New Delhi",
     zip: "110047",
@@ -20,6 +20,15 @@ export const SITE_CONFIG = {
   rating: {
     value: 4.8,
     count: 150
+  },
+  stats: {
+    projects: "250+",
+    clients: "200+",
+    reviews: "150+",
+    awards: "15+",
+    residential: "180+",
+    commercial: "45+",
+    kitchens: "120+"
   }
 };
 

@@ -69,9 +69,9 @@ export const PORTFOLIO_PROJECTS: Project[] = [
     thumbnail: '/images/Island Kitchen/ki-26-1763112209-dd7Yn.jpg',
     images: [
       '/images/Island Kitchen/ki-26-1763112209-dd7Yn.jpg',
-      '/images/Island Kitchen/ki-1-1763112227-Ov8Uo.jpg',
-      '/images/Island Kitchen/ki-11-1763112216-Uy3Uw.jpg',
-      '/images/Island Kitchen/ki-12-1763112215-lBMYB.jpg'
+      '/images/Island Kitchen/ki-11-1753694658-Aq4cg.jpg',
+      '/images/Island Kitchen/ki-10-1753694659-tq49p.jpg',
+      '/images/Island Kitchen/ki-2-1754378510-BiNjG.jpg'
     ],
     features: [
       'Central island with granite countertop',
@@ -107,7 +107,10 @@ export const PORTFOLIO_PROJECTS: Project[] = [
     images: [
       '/images/home office/ho-1-1763115252-l3GLN.jpg',
       '/images/home office/ho-11-1763110382-NscOp.jpg',
-      '/images/home office/ho-12-1763110381-RVOcI.jpg'
+      '/images/home office/ho-12-1763110366-3Pi4W.jpg',
+      '/images/home office/ho-13-1763110349-Fx9US.jpg',
+      '/images/home office/ho-2-1763115251-JrapT.jpg',
+      '/images/home office/ho-3-1763115249-ngptO.jpg'
     ],
     features: [
       'Open-plan workstations for 50+ employees',
@@ -125,6 +128,68 @@ export const PORTFOLIO_PROJECTS: Project[] = [
     ]
   },
   {
+    id: 'foyer-entrance-delhi',
+    title: 'Elegant Foyer Entrance',
+    category: 'Residential',
+    location: 'Delhi',
+    area: '150 sq ft',
+    budget: 'Under ₹5 Lakhs',
+    completionDate: 'December 2025',
+    duration: '15 days',
+    description: 'A grand entrance designed to make a lasting first impression. Features custom shoe storage, a decorative console, and ambient lighting that sets the tone for the rest of the home.',
+    thumbnail: '/images/Foyaer area/fo-1-1755355496-u2zeK.jpg',
+    images: [
+      '/images/Foyaer area/fo-1-1755355496-u2zeK.jpg',
+      '/images/Foyaer area/fo-11-1763110762-FamoO.jpg',
+      '/images/Foyaer area/fo-12-1763110756-OD0eX.jpg',
+      '/images/Foyaer area/fo-2-1760079262-btq6v.jpg'
+    ],
+    features: [
+      'Custom-designed console table',
+      'Integrated shoe rack with seating',
+      'Statement mirror with LED backlight',
+      'Decorative wall paneling',
+      'Ambient cove lighting'
+    ],
+    materials: [
+      'Finish - PU Polish and Laminate',
+      'Stone - Italian Marble top for console',
+      'Mirror - 8mm Saint-Gobain',
+      'Hardware - Hafele'
+    ]
+  },
+  {
+    id: 'premium-wardrobe-noida',
+    title: 'Modern Sliding Wardrobe',
+    category: 'Wardrobe',
+    location: 'Noida',
+    area: '100 sq ft',
+    budget: '₹5-10 Lakhs',
+    completionDate: 'January 2026',
+    duration: '20 days',
+    description: 'A space-saving sliding door wardrobe with a sleek matte finish. Designed for maximum storage efficiency with dedicated sections for various clothing and accessories.',
+    thumbnail: '/images/Sliding Door Wardrobe/wr-1-1760438367-YXg4y.jpg',
+    images: [
+      '/images/Sliding Door Wardrobe/wr-1-1760438367-YXg4y.jpg',
+      '/images/Sliding Door Wardrobe/wr-11-1762940815-dtObq.jpg',
+      '/images/Sliding Door Wardrobe/wr-14-1762940811-Cl21w.jpg',
+      '/images/Sliding Door Wardrobe/wr-17-1762940807-agYuV.jpg'
+    ],
+    features: [
+      'Soft-close sliding mechanism',
+      'Integrated loft storage',
+      'Internal Sensored LED lighting',
+      'Adjustable shelving',
+      'Hidden jewelry drawer'
+    ],
+    materials: [
+      'Carcass - BWP Plywood',
+      'Shutter - High-gloss laminate',
+      'Hardware - Hettich TopLine Grant',
+      'Accessories - Ebco'
+    ]
+  },
+  {
     id: 'walk-in-wardrobe',
     title: 'Luxury Walk-in Wardrobe',
     category: 'Wardrobe',
@@ -137,8 +202,8 @@ export const PORTFOLIO_PROJECTS: Project[] = [
     thumbnail: '/images/Walk In Wardrobe/w1-1696585849-K7Bgb.jpg',
     images: [
       '/images/Walk In Wardrobe/w1-1696585849-K7Bgb.jpg',
-      '/images/Walk In Wardrobe/w2-1696585850-Xm8Kl.jpg',
-      '/images/Walk In Wardrobe/w3-1696585851-Np2Qr.jpg'
+      '/images/Walk In Wardrobe/w2-1696585839-nWufC.jpg',
+      '/images/Walk In Wardrobe/w3-1696585848-hhjoe.jpg'
     ],
     features: [
       'Customized shelving and hanging space',
@@ -175,7 +240,7 @@ export const PORTFOLIO_PROJECTS: Project[] = [
       '/images/living area/lr-11-1763103059-2KjqV.jpg',
       '/images/living area/lr-12-1763103058-7JFKh.jpg',
       '/images/living area/lr-1-1-1763103069-BpS4n.jpg',
-      '/images/living area/lr-13-1763103057-TbFcg.jpg'
+      '/images/living area/lr-13-1763103057-9PLx6.jpg'
     ],
     features: [
       'Custom TV unit with hidden storage',
@@ -210,8 +275,8 @@ export const PORTFOLIO_PROJECTS: Project[] = [
     thumbnail: '/images/Parallel Kitchen/ki-13-1763112292-8zKJS.jpg',
     images: [
       '/images/Parallel Kitchen/ki-13-1763112292-8zKJS.jpg',
-      '/images/Parallel Kitchen/ki-14-1763112291-JmPQs.jpg',
-      '/images/Parallel Kitchen/ki-15-1763112290-Kx7Rt.jpg'
+      '/images/Parallel Kitchen/ki-14-1763112286-Z52lQ.jpg',
+      '/images/Parallel Kitchen/ki-16-1763112266-O8jw2.jpg'
     ],
     features: [
       'Dual countertops for efficient workflow',
@@ -242,7 +307,7 @@ export const PORTFOLIO_PROJECTS: Project[] = [
     images: [
       '/images/bedroom/mbr-11-1763111543-e5Ily.jpg',
       '/images/bedroom/mbr-1-1763100371-xDVo0.jpg',
-      '/images/bedroom/mbr-12-1763111542-Qw9Xy.jpg'
+      '/images/bedroom/mbr-12-1763111537-IYNiT.jpg'
     ],
     features: [
       'King-size bed with upholstered headboard',
@@ -277,8 +342,8 @@ export const PORTFOLIO_PROJECTS: Project[] = [
     thumbnail: '/images/dining area/dr-11-1763110871-9W8lQ.jpg',
     images: [
       '/images/dining area/dr-11-1763110871-9W8lQ.jpg',
-      '/images/dining area/dr-12-1763110870-Lp4Mn.jpg',
-      '/images/dining area/dr-1-1763110881-Xy5Qr.jpg'
+      '/images/dining area/dr-12-1763110866-T02bC.jpg',
+      '/images/dining area/dr-1-1762944299-GlYlZ.jpg'
     ],
     features: [
       '6-seater dining table with marble top',
@@ -308,7 +373,7 @@ export const PORTFOLIO_PROJECTS: Project[] = [
     thumbnail: '/images/home office/ho-11-1763110382-NscOp.jpg',
     images: [
       '/images/home office/ho-11-1763110382-NscOp.jpg',
-      '/images/home office/ho-12-1763110381-RVOcI.jpg',
+      '/images/home office/ho-12-1763110366-3Pi4W.jpg',
       '/images/home office/ho-1-1763115252-l3GLN.jpg'
     ],
     features: [
@@ -330,9 +395,222 @@ export const PORTFOLIO_PROJECTS: Project[] = [
       client: 'Sanjay Gupta',
       rating: 5
     }
+  },
+  {
+    id: 'modern-island-kitchen-gurgaon',
+    title: 'Minimalist Open Kitchen',
+    category: 'Kitchen',
+    location: 'Gurgaon',
+    area: '300 sq ft',
+    budget: '₹10-20 Lakhs',
+    completionDate: 'January 2026',
+    duration: '35 days',
+    description: 'An open-concept kitchen that seamlessly blends with the living area. Features a large island that doubles as a breakfast bar and prep station.',
+    thumbnail: '/images/Open Kitchen/ki-11-1760342934-IL3OY.jpg',
+    images: [
+      '/images/Open Kitchen/ki-11-1760342934-IL3OY.jpg',
+      '/images/Open Kitchen/ki-16-1760342928-NNaJm.jpg',
+      '/images/Open Kitchen/ki-18-1763112254-0HcaS.jpg',
+      '/images/Open Kitchen/ki-4-1760342940-RroEp.jpg'
+    ],
+    features: [
+      'Handle-less cabinet design',
+      'Built-in wine cooler',
+      'Quartz waterfall island edge',
+      'Integrated induction cooktop',
+      'Concealed pantry storage'
+    ],
+    materials: [
+      'Countertop - Kalinga Quartz',
+      'Finish - Anti-fingerprint matte lacquer',
+      'Hardware - Blum Legrabox',
+      'Appliances - Siemens'
+    ]
+  },
+  {
+    id: 'space-saving-solution-delhi',
+    title: 'Smart Studio Design',
+    category: 'Residential',
+    location: 'Delhi',
+    area: '450 sq ft',
+    budget: '₹5-10 Lakhs',
+    completionDate: 'February 2026',
+    duration: '25 days',
+    description: 'A compact studio apartment transformed with multi-functional furniture and smart space-saving designs. Perfect for urban living without compromising on style.',
+    thumbnail: '/images/space saving design/ssd-1-1760076250-uU5jK.jpg',
+    images: [
+      '/images/space saving design/ssd-1-1760076250-uU5jK.jpg',
+      '/images/space saving design/ssd-11-1762938469-l2y1i.jpg',
+      '/images/space saving design/ssd-2-1760076249-ZkDbn.jpg',
+      '/images/space saving design/ssd-3-1-1761582520-KtSin.jpg'
+    ],
+    features: [
+      'Murphy bed with integrated sofa',
+      'Foldable dining table',
+      'Modular wall shelving',
+      'Hidden storage compartments',
+      'Mirror walls to increase spatial perception'
+    ],
+    materials: [
+      'Finish - Light Oak laminate',
+      'Hardware - Specialized space-saving mechanisms',
+      'Glass - Clear and grey tinted mirrors',
+      'Fabric - Durable easy-clean linen'
+    ]
+  },
+  {
+    id: 'luxury-living-delhi',
+    title: 'Luxury Living Area',
+    category: 'Residential',
+    location: 'Delhi',
+    area: '550 sq ft',
+    budget: '₹10-20 Lakhs',
+    completionDate: 'November 2025',
+    duration: '40 days',
+    description: 'A grand living space designed with a blend of luxury and comfort. Features exquisite lighting fixtures, premium wall textures, and high-end bespoke furniture.',
+    thumbnail: '/images/living area/lr-2-1763103068-cvgZB.jpg',
+    images: [
+      '/images/living area/lr-2-1763103068-cvgZB.jpg',
+      '/images/living area/lr-1-1-1763103069-BpS4n.jpg',
+      '/images/living area/lr-13-1763111912-Rl3YP.jpg',
+      '/images/living area/lr-15-1763111870-Q1FVB.jpg'
+    ],
+    features: [
+      'Custom wall paneling with brass accents',
+      'Designer false ceiling with ambient cove lighting',
+      'Handcrafted premium sofa ensemble',
+      'Smart home lighting scenes',
+      'Large format Italian marble flooring'
+    ],
+    materials: [
+      'Flooring - Royal Bottochino Marble',
+      'Wall Decor - Suede finish paneling',
+      'Hardware - Ozone premium range',
+      'Lighting - Tisva Chandeliers'
+    ]
+  },
+  {
+    id: 'guest-bedroom-noida',
+    title: 'Minimalist Guest Retreat',
+    category: 'Residential',
+    location: 'Noida',
+    area: '220 sq ft',
+    budget: '₹5-10 Lakhs',
+    completionDate: 'October 2025',
+    duration: '25 days',
+    description: 'A serene and functional guest bedroom that prioritizes clean lines and soothing textures. Designed to provide a five-star experience for visitors.',
+    thumbnail: '/images/guest bedroom/gbr-1-1760071346-sjwGb.jpg',
+    images: [
+      '/images/guest bedroom/gbr-1-1760071346-sjwGb.jpg',
+      '/images/guest bedroom/gbr-2-1760071344-VxlJl.jpg',
+      '/images/guest bedroom/gbr-13-1763110644-xRyZs.jpg'
+    ],
+    features: [
+      'Space-saving sliding wardrobe',
+      'Integrated study desk with floating shelves',
+      'Upholstered bed with hidden storage',
+      'Natural light optimization',
+      'Contemporary hardware finishes'
+    ],
+    materials: [
+      'Laminates - Greenlam High Gloss',
+      'Hardware - Hettich Soft-close',
+      'Wall Finish - Asian Paints Velvet Touch',
+      'Fabric - D\'Decor Upholstery'
+    ]
+  },
+  {
+    id: 'modern-tv-lounge-gurgaon',
+    title: 'Modern TV Lounge',
+    category: 'Residential',
+    location: 'Gurgaon',
+    area: '350 sq ft',
+    budget: '₹5-10 Lakhs',
+    completionDate: 'September 2025',
+    duration: '20 days',
+    description: 'An entertainment-focused lounge area featuring a custom entertainment center and ergonomic seating. The perfect space for family movie nights and immersive gaming.',
+    thumbnail: '/images/TV Unit with Storage/tv-17-1762940261-3YNFI.jpg',
+    images: [
+      '/images/TV Unit with Storage/tv-17-1762940261-3YNFI.jpg',
+      '/images/TV Unit with Storage/tv-19-1762940257-FaY0N.jpg',
+      '/images/TV Unit with Storage/tv-9-1760078628-0f3zJ.jpg'
+    ],
+    features: [
+      'Floating TV console with integrated cable management',
+      'Acoustic wall treatment for enhanced sound',
+      'Dimmable smart LED backlighting',
+      'Ergonomic recliner seating arrangement',
+      'Minimalist display shelving'
+    ],
+    materials: [
+      'Carcass - BWP Plywood',
+      'Finish - Charcoal Charcoal panels',
+      'Hardware - Hafele',
+      'Lighting - Wipro Smart LED strips'
+    ]
+  },
+  {
+    id: 'l-kitchen-faridabad',
+    title: 'Sophisticated L-Kitchen',
+    category: 'Kitchen',
+    location: 'Faridabad',
+    area: '180 sq ft',
+    budget: '₹5-10 Lakhs',
+    completionDate: 'August 2025',
+    duration: '28 days',
+    description: 'A masterfully planned L-shaped kitchen that optimizes the ergonomic work triangle. Combines high-gloss finishes with smart storage solutions for a clutter-free cooking environment.',
+    thumbnail: '/images/L- Kitchen/ki-21-1763112242-jY0Qv.jpg',
+    images: [
+      '/images/L- Kitchen/ki-21-1763112242-jY0Qv.jpg',
+      '/images/L- Kitchen/ki-27-1763112203-QB8Bo.jpg',
+      '/images/L- Kitchen/ki-24-1763112223-vxkTX.jpg'
+    ],
+    features: [
+      'Smart corner storage units (Magic Corner)',
+      'High-gloss acrylic shutters',
+      'Integrated profile handles',
+      'Automated chimney system',
+      'Deep drawer system for large cookware'
+    ],
+    materials: [
+      'Countertop - Kalinga Quartz',
+      'Shutters - Acrylic on Plywood',
+      'Hardware - Blum Legrabox',
+      'Appliances - Elica Kitchenware'
+    ]
+  },
+  {
+    id: 'u-kitchen-ghaziabad',
+    title: 'Elegant U-Kitchen',
+    category: 'Kitchen',
+    location: 'Ghaziabad',
+    area: '240 sq ft',
+    budget: '₹10-20 Lakhs',
+    completionDate: 'July 2025',
+    duration: '35 days',
+    description: 'A comprehensive U-shaped kitchen design perfect for large families. Offers expansive counter space and floor-to-ceiling storage for ultimate organization.',
+    thumbnail: '/images/U- Kitchen/ki-22-1763112236-IMxCt.jpg',
+    images: [
+      '/images/U- Kitchen/ki-22-1763112236-IMxCt.jpg',
+      '/images/U- Kitchen/ki-11-1763112303-A1e73.jpg',
+      '/images/U- Kitchen/ki-25-1763112220-s3TiZ.jpg'
+    ],
+    features: [
+      'Expandsive counter space on three sides',
+      'Floor-to-ceiling larder unit',
+      'Built-in appliance garage',
+      'Overhead hydraulic cabinets',
+      'Integrated waste management system'
+    ],
+    materials: [
+      'Countertop - Brazilian Granite',
+      'Carcass - HDHMR Board',
+      'Hardware - Grass Dynapro',
+      'Finish - Zero-fingerprint Matte Laminate'
+    ]
   }
 ];
 
-export const FEATURED_PROJECTS = PORTFOLIO_PROJECTS.filter(p => 
+export const FEATURED_PROJECTS = PORTFOLIO_PROJECTS.filter(p =>
   ['luxury-island-kitchen', 'modern-2bhk-gurgaon', 'corporate-office-noida'].includes(p.id)
 );

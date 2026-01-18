@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import PageHero from '@/components/PageHero';
-import { PROJECT_TYPES, BUDGET_RANGES, CITIES } from '@/lib/constants';
+import { PROJECT_TYPES, BUDGET_RANGES, CITIES, SITE_CONFIG } from '@/lib/constants';
 
 export default function BookSiteVisitPage() {
   const [formData, setFormData] = useState({
@@ -256,7 +256,7 @@ export default function BookSiteVisitPage() {
           </form>
 
           <div className="mt-8 text-center text-gray-600">
-            <p>Or call us directly at <a href="tel:+919876543210" className="text-amber-700 font-semibold">+91-9876543210</a></p>
+            <p>Or call us directly at <a href={`tel:${SITE_CONFIG.phone}`} className="text-amber-700 font-semibold">{SITE_CONFIG.phone}</a></p>
           </div>
         </div>
       </section>

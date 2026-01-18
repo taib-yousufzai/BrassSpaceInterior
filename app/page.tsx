@@ -5,7 +5,7 @@ import CTABanner from '@/components/CTABanner';
 import FeaturedProjectsCarousel from '@/components/FeaturedProjectsCarousel';
 import TestimonialsCarousel from '@/components/TestimonialsCarousel';
 import { FadeInUp, StaggerContainer, StaggerItem } from '@/components/AnimatedSection';
-import { SERVICES } from '@/lib/constants';
+import { SERVICES, SITE_CONFIG } from '@/lib/constants';
 
 export default function Home() {
   const blogPosts = [
@@ -44,7 +44,7 @@ export default function Home() {
         title="Thoughtful Interiors. Built to Last."
         description="Residential & Commercial Interior Solutions"
         primaryCTA={{ text: "Book Free Site Visit", href: "/book-site-visit" }}
-        secondaryCTA={{ text: "View Portfolio", href: "/portfolio" }}
+        secondaryCTA={{ text: "Featured Projects", href: "/portfolio" }}
         backgroundImage="/images/living area/lr-1-1-1763103069-BpS4n.jpg"
       />
 
@@ -62,8 +62,8 @@ export default function Home() {
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
                 </div>
-                <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2 group-hover:text-[#daa520] transition-colors duration-300">4.8 Google Rating</h3>
-                <p className="text-gray-500 text-sm">150+ Reviews</p>
+                <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2 group-hover:text-[#daa520] transition-colors duration-300">{SITE_CONFIG.rating.value} Google Rating</h3>
+                <p className="text-gray-500 text-sm">{SITE_CONFIG.stats.reviews} Reviews</p>
               </div>
             </StaggerItem>
 
@@ -75,7 +75,7 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                   </svg>
                 </div>
-                <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2 group-hover:text-[#daa520] transition-colors duration-300">150+ Projects</h3>
+                <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2 group-hover:text-[#daa520] transition-colors duration-300">{SITE_CONFIG.stats.projects} Projects</h3>
                 <p className="text-gray-500 text-sm">Successfully Delivered</p>
               </div>
             </StaggerItem>
