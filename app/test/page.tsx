@@ -1,62 +1,102 @@
+import React from 'react';
 import PageHero from '@/components/PageHero';
 import CTABanner from '@/components/CTABanner';
 import { generateMetadata as genMeta } from '@/components/SEOHead';
 
 export const metadata = genMeta({
-  title: "Test Page - Brass Space Interior Solutions",
-  description: "Temporary test page for development and experiments.",
+  title: "Live Indexing Sandbox - Brass Space Interior Solutions",
+  description: "Temporary 24-hour verification hub for external index submissions.",
   canonical: "/test"
 });
 
-export default function TestPage() {
+export const revalidate = 0; // Fresh SSR rendering on every request
+
+interface PageProps {
+  searchParams: Promise<{ batch?: string }>;
+}
+
+export default async function TestPage({ searchParams }: PageProps) {
+  const params = await searchParams;
+  const batchId = params.batch;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://brassspace.com';
+
+  let urls: string[] = [];
+  let isExpired = false;
+
+  if (batchId) {
+    try {
+      const res = await fetch(`${siteUrl}/api/indexing-hub?batch=${batchId}`, { cache: 'no-store' });
+      if (res.ok) {
+        const data = await res.json();
+        urls = data.urls || [];
+      } else {
+        isExpired = true;
+      }
+    } catch {
+      isExpired = true;
+    }
+  } else {
+    // Show most recent active batch if no batch specified
+    try {
+      const res = await fetch(`${siteUrl}/api/indexing-hub`, { cache: 'no-store' });
+      if (res.ok) {
+        const data = await res.json();
+        const latestBatch = data.batches?.[data.batches.length - 1];
+        if (latestBatch) {
+          urls = latestBatch.urls || [];
+        }
+      }
+    } catch {}
+  }
+
   return (
     <>
-      {/* Test Page Hero Header */}
       <PageHero
-        title="Test Page Sandbox"
-        subtitle="Temporary page for feature testing & experimentations"
+        title="Live Indexing Sandbox"
+        subtitle="Temporary 24-hour verification hub for index submissions"
       />
 
-      {/* Main Content / Testing Area */}
       <section className="py-16 bg-white min-h-[60vh]">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             
-            {/* Notice Banner */}
             <div className="bg-amber-50 border-l-4 border-amber-600 p-6 rounded-r-lg shadow-sm mb-12">
               <div className="flex items-center space-x-3">
                 <span className="text-2xl">🧪</span>
                 <div>
-                  <h2 className="text-lg font-bold text-amber-900">Developer Note</h2>
+                  <h2 className="text-lg font-bold text-amber-900">Live Indexing Queue</h2>
                   <p className="text-amber-800 text-sm">
-                    This is a temporary test page. Route: <code className="bg-amber-100 px-2 py-0.5 rounded text-amber-900 font-mono">/test</code> (File: <code className="bg-amber-100 px-2 py-0.5 rounded text-amber-900 font-mono">app/test/page.tsx</code>). You can safely edit or delete this page later.
+                    Links displayed on this sandbox page auto-expire and delete themselves after 24 hours.
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Test Sandbox Containers */}
-            <div className="space-y-8">
-              <div className="bg-gray-50 p-8 rounded-xl border border-gray-200">
-                <h3 className="text-xl font-bold mb-4 text-gray-800">Test Section 1</h3>
-                <p className="text-gray-600 mb-4">
-                  Use this container to quickly test components, UI layouts, or custom React hooks.
-                </p>
-                <div className="p-4 bg-white rounded-lg border border-dashed border-gray-300 text-center text-gray-500">
-                  [ Placeholder for component test #1 ]
-                </div>
+            {isExpired ? (
+              <div className="p-6 bg-red-50 border-l-4 border-red-500 text-red-900 rounded-lg">
+                <p className="font-semibold">Batch Expired / Removed</p>
+                <p className="text-sm">This temporary indexing batch has completed its 24-hour verification cycle and was purged.</p>
               </div>
-
-              <div className="bg-gray-50 p-8 rounded-xl border border-gray-200">
-                <h3 className="text-xl font-bold mb-4 text-gray-800">Test Section 2</h3>
-                <p className="text-gray-600 mb-4">
-                  Secondary test module container for side-by-side comparison or additional logic.
-                </p>
-                <div className="p-4 bg-white rounded-lg border border-dashed border-gray-300 text-center text-gray-500">
-                  [ Placeholder for component test #2 ]
-                </div>
+            ) : urls.length === 0 ? (
+              <div className="bg-gray-50 p-8 rounded-xl border border-gray-200 text-center text-gray-500">
+                No active indexing links currently queued.
               </div>
-            </div>
+            ) : (
+              <div className="space-y-3">
+                {urls.map((targetUrl, idx) => (
+                  <div key={idx} className="p-4 bg-gray-50 rounded-xl border border-gray-200 hover:border-amber-500 transition">
+                    <a
+                      href={targetUrl}
+                      rel="dofollow"
+                      target="_blank"
+                      className="text-[#b8860b] font-medium text-base hover:underline break-all block"
+                    >
+                      {targetUrl}
+                    </a>
+                  </div>
+                ))}
+              </div>
+            )}
 
           </div>
         </div>
