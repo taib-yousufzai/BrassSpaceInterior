@@ -4,10 +4,9 @@ interface HubBatch {
   id: string;
   urls: string[];
   createdAt: number;
-  expiresAt: number;
 }
 
-// Global in-memory cache for active 24h batches across Next.js reloads
+// Global in-memory map for permanent batches across Next.js reloads
 const globalForHub = globalThis as unknown as {
   activeHubBatches?: Map<string, HubBatch>;
 };
@@ -18,15 +17,6 @@ if (!globalForHub.activeHubBatches) {
 
 const activeBatches = globalForHub.activeHubBatches;
 
-function pruneExpiredBatches() {
-  const now = Date.now();
-  for (const [id, batch] of activeBatches.entries()) {
-    if (now >= batch.expiresAt) {
-      activeBatches.delete(id);
-    }
-  }
-}
-
 export async function POST(req: NextRequest) {
   const secretHeader = req.headers.get('x-hub-secret');
   const expectedSecret = process.env.BRASS_SPACE_HUB_SECRET || 'brassspace_hub_secret_key_2026';
@@ -36,11 +26,8 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    pruneExpiredBatches();
-
     const body = await req.json();
     const urls: string[] = body.urls || [];
-    const ttlHours: number = body.ttlHours || 24;
 
     if (!Array.isArray(urls) || urls.length === 0) {
       return NextResponse.json({ error: 'No URLs provided' }, { status: 400 });
@@ -48,13 +35,11 @@ export async function POST(req: NextRequest) {
 
     const batchId = `b_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
     const now = Date.now();
-    const expiresAt = now + ttlHours * 60 * 60 * 1000;
 
     const newBatch: HubBatch = {
       id: batchId,
       urls,
       createdAt: now,
-      expiresAt,
     };
 
     activeBatches.set(batchId, newBatch);
@@ -67,7 +52,7 @@ export async function POST(req: NextRequest) {
       batchId,
       batchUrl,
       urlsCount: urls.length,
-      expiresAt: new Date(expiresAt).toISOString(),
+      createdAt: new Date(now).toISOString(),
     });
   } catch (err: any) {
     return NextResponse.json({ error: err.message }, { status: 500 });
@@ -75,13 +60,12 @@ export async function POST(req: NextRequest) {
 }
 
 export async function GET(req: NextRequest) {
-  pruneExpiredBatches();
   const batchId = req.nextUrl.searchParams.get('batch');
 
   if (batchId) {
     const batch = activeBatches.get(batchId);
-    if (!batch || Date.now() >= batch.expiresAt) {
-      return NextResponse.json({ error: 'Batch expired or not found' }, { status: 404 });
+    if (!batch) {
+      return NextResponse.json({ error: 'Batch not found' }, { status: 404 });
     }
     return NextResponse.json(batch);
   }

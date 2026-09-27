@@ -44,6 +44,7 @@ export default function Footer() {
               <li><Link href="/about" className="hover:text-[#daa520] transition">About Us</Link></li>
               <li><Link href="/portfolio" className="hover:text-[#daa520] transition">Portfolio</Link></li>
               <li><Link href="/blog" className="hover:text-[#daa520] transition">Blog</Link></li>
+              <li><Link href="/html-sitemap" className="hover:text-[#daa520] transition">HTML Sitemap</Link></li>
               <li><Link href="/faq" className="hover:text-[#daa520] transition">FAQs</Link></li>
               <li><Link href="/contact" className="hover:text-[#daa520] transition">Contact</Link></li>
             </ul>
@@ -65,6 +66,7 @@ export default function Footer() {
           <div className="mt-2 space-x-4">
             <Link href="/privacy-policy" className="hover:text-[#daa520] transition">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-[#daa520] transition">Terms of Service</Link>
+            <Link href="/html-sitemap" className="hover:text-[#daa520] transition">Sitemap</Link>
           </div>
         </div>
       </div>
